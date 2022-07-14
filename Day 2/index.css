@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+h1 {
+    margin-bottom: 50px;
+    font-size: 85px;
+    font-style: italic;
+}
+
+.lead {
+    text-indent: 30px;
+    margin-bottom: 30px;
+}
+
+#secondary {
+    text-indent: 100px;
+    font-size: 18px;
+}
+
+body{
+    background-color: rgba(145, 130, 130, 0.726);
+    font-family: 'Roboto Slab';
+    color: white;
+    margin: 50px;
+    margin-bottom: 15px;
+}
+
+.intro {
+    margin-bottom: -45px;
+}
+
+a:link {
+    text-decoration: none;
+    color: blanchedalmond;
+}
+
+a:visited {
+    color: blanchedalmond;
+}
+
+a:hover {
+    font-size: 25px;
+}
+
+b, i, q, strong {
+    font-weight: bold;
+    color:blanchedalmond;
+}
+
+.bottom-half {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.info {
+    margin-top: -30px;
+    font-family: 'Roboto Slab';
+    color: white;
+}
+
+blockquote {
+    margin-left: 200px;
+    text-indent: 30px;
+    width: 850px;
+    font-size: 25px;
+    font-family: 'Roboto Slab';
+    color: white;
+    position: relative;
+}
+
+#james {
+    position: relative;
+    right: 150px;
+}
+
+#kobe {
+    position: relative;
+    right: 100px;
+}
+
+#mandela {
+    position: relative;
+    right: 50px;
+}
+
+.btn-outline-primary{
+    color: white;
+    border-color: white;
+}
+
+img {
+    display: inline;
+    margin: 100px;
+}
+
+.pics {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-thumbnail {
+    height: 500px;
+}
+
+.captions {
+    margin-top: -85px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    text-align: center;
+    background-color: #090c43;
+}
+
+.container {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    font-size: 90px;
+    color: #F94F6D;
+    margin: 20px;
+    width: 120;
+    background-color: black;
+}
+
+button {
+    color: white;
+    background: none;
+    border-color: white;
+}
