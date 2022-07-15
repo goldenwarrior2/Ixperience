@@ -15,7 +15,7 @@ const movies = [
 const guessInput = document.getElementById("guess");
 const submitInput = document.getElementById("submit");
 const hintInput = document.getElementById("hint");
-const cardBody = document.getElementsByClassName("card-body");
+const cardBody = document.getElementById("card-body");
 
 const index = Math.floor(Math.random() * 11);
 const explanation = document.getElementById("explanation");
@@ -25,9 +25,12 @@ const answer = movies[index].title;
 const answerHint = movies[index].hint;
 
 submitInput.addEventListener('click', (event) => {
-    const submission = submitInput.value;
+    const submission = guessInput.value;
     const subDiv = document.createElement('div');
-    if (submission === answer) {
+    subDiv.classList.add('alert');
+    subDiv.classList.add('mt-4');
+    subDiv.classList.add('mb-4');
+    if (submission == answer) {
         subDiv.innerHTML = "You got it!";
         subDiv.classList.add('alert-success');
     } else {
@@ -39,6 +42,7 @@ submitInput.addEventListener('click', (event) => {
 
 hintInput.addEventListener('click', (event) => {
     const hintDiv = document.createElement('div');
+    hintDiv.classList.add('hint');
     hintDiv.classList.add('display-3');
     hintDiv.innerHTML = answerHint;
     cardBody.append(hintDiv);
