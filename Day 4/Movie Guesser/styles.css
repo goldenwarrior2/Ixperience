@@ -1,3 +1,7 @@
+.container {
+    width: 45rem;
+}
+
 .card-body {
     margin-top: 4rem;
     margin-bottom: 5rem;
