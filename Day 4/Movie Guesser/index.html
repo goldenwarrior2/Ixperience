@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Movie Guesser</title>
+</head>
+<body>
+    <div class="container mx-auto" style="width: 100rem;">
+        <div class="card mt-4" style="background-color: #E8E9EB;">
+            <div class="card-body">
+                <h1 class="h2 text-center">Badly explained movies</h1>
+                <hr class="hr"></hr>
+                <div id="explanation" class="display-2 text-center"></div>
+                <hr id="second-line" class="hr"></hr>
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="input" placeholder="Enter guess here">
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="button" id="submit" >Submit</button>
+                </div>
+                <hr id="third-line" class="hr"></hr>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-secondary" type="button" id="hint" >Show Hint</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

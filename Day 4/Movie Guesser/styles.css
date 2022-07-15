@@ -1,0 +1,28 @@
+.card-body {
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.h2 {
+    margin-bottom: 5rem;
+}
+
+.display-2 {
+    font-size: 2rem;
+}
+
+#explanation {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+#second-line {
+    margin-bottom: 1.5rem;
+}
+
+#third-line {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
