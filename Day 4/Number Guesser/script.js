@@ -1,6 +1,6 @@
 const guessInput = document.getElementById("guess");
 const submitInput = document.getElementById("submit");
-const cardBody = document.getElementById('card-body')
+const cardBody = document.getElementById('card-body');
 const answer = Math.floor(Math.random() * 11);
 
 submitInput.addEventListener('click', (event) => {
