@@ -1,0 +1,42 @@
+.container {
+    width: 35rem;
+    margin-top: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #e8e9eb;
+}
+
+.display-1 {
+    font-size: 1.3rem;
+}
+
+.display-2 {
+    font-size: 3.5rem;
+}
+
+.display-3 {
+    font-size: 1.5rem;
+}
+
+.card {
+    border-color: #e8e9eb;
+    background-color: #e8e9eb;
+}
+
+.rounded-edges {
+    border-radius: 0.5%;
+}
+
+h1, h3{
+    margin-bottom: 3rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+hr {
+    margin-bottom: 2rem;
+}
