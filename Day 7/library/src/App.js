@@ -23,8 +23,7 @@ export default function App() {
     <div className="container mt-5">
       <h1 className = "mt-4">Add Book: </h1>
       <BookInput onBookCreated={onBookCreated}></BookInput>
-      <BookTable> books={books}</BookTable>
-
+      <BookTable books={books}> </BookTable>
     </div>
   )
 }

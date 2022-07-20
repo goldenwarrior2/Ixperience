@@ -32,13 +32,13 @@ export default function BookInput(props) {
         <form onSubmit={onFormSubmitted}>
           <h3>Title</h3>
           <div className="mb-3">
-            <input
-              // change value of input to title
-              value={title}
-              // change title to value of input
-              onChange={(event) => {setTitle(event.target.value)}} 
-              className="form-control"
-            />
+          <input
+            // change value of input to title
+            value={title}
+            // change title to value of input
+            onChange={(event) => {setTitle(event.target.value)}} 
+            className="form-control"
+          />
           </div>
           <h3>Author</h3>
           <div className="mb-3">
@@ -48,7 +48,7 @@ export default function BookInput(props) {
               // change author to value of input
               onChange={(event) => {setAuthor(event.target.value)}} 
               className="form-control"
-            />
+          />
           </div>
           <h3>ISBN#</h3>
           <div className="mb-3">
@@ -59,7 +59,7 @@ export default function BookInput(props) {
               onChange={(event) => {setISBN(event.target.value)}} 
               type="number"
               className="form-control"
-            />
+          />
           </div>
           <div className="d-grid gap-2">
             <button
