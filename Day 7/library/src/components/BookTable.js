@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function BookTable(props) {
 
-  console.log(props);
+  //console.log(props);
 
   return (
     <div className="mt-4">
@@ -20,7 +20,7 @@ export default function BookTable(props) {
              <tr key={book.id}>
                <td>{book.title}</td>
                <td>{book.author}</td>
-               <td>{book.author}</td>
+               <td>{book.isbn}</td>
              </tr>
              )
           }
