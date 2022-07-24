@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Recipe } from '../models/recipe';
 
-export default function RecipeInput() {
+export default function RecipeInput(props) {
   
   const [recipeName, setName] = useState('');
   const [recipeIngredients, setIngredients] = useState('');
@@ -9,6 +10,19 @@ export default function RecipeInput() {
   function onFormSubmit(event) {
     // so page doesn't reload when user submits a form
     event.preventDefault();
+
+    const recipe = new Recipe(
+      (new Date()).getTime(),
+      recipeName,
+      recipeIngredients,
+      recipeInstructions
+    );
+    
+    props.onRecipeCreated(recipe);
+    
+    setName('');
+    setIngredients('');
+    setInstructions('');
   }
 
   return (
