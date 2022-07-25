@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Recipe } from '../models/recipe';
+import { Recipe } from '../../models/recipe';
 
 export default function RecipeInput(props) {
   

@@ -1,66 +1,44 @@
 import React, { useEffect, useState } from 'react';
 
+import {
+  BrowserRouter,
+  Routes,
+  Route 
+} from 'react-router-dom'
+
+import { onAuthStateChanged } from 'firebase/auth';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'bootstrap/js/dist/collapse';
 
-import RecipeInput from './components/RecipeInput';
-import RecipeTable from './components/RecipeTable';
+import { auth } from './firebase/firebase';
 
-import recipeService from './services/recipe.service';
+import RecipePage from './components/recipes/RecipePage';
+import LoginPage from './components/auth/LoginPage';
+import RegisterPage from './components/auth/RegisterPage';
+import Navbar from './components/common/Navbar';
 
 export default function App() {
 
-  const [recipes, setRecipes] = useState([]);
+  const[user, setUser] = useState(null);
 
   useEffect(() => {
-    fetchRecipes();
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
   }, []);
 
-  async function fetchRecipes() {
-    try {
-      const recipes = await recipeService.readRecipes();
-      setRecipes(recipes);
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  async function onRecipeCreated(recipe) {
-    try {
-      recipe = await recipeService.createRecipe(recipe);
-       // update recipe list with new recipe
-      setRecipes([...recipes, recipe]);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  async function onRecipeRemove(recipe) {
-
-    try {
-      await recipeService.deleteRecipe(recipe);
-
-      const newRecipes = recipes.filter((r) => {
-        // return a list of all the recipes that are not the one we are trying to remove
-        return r.id !== recipe.id;
-      })
-      setRecipes(newRecipes);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   return (
-    <div className='container mt-5'>
-      <div className='card card-body'>
-        <h1>Recipe List</h1>
-
-        <RecipeInput onRecipeCreated={onRecipeCreated}></RecipeInput>
-      </div>
-      <div className='mt-5 card card-body'>
-        <RecipeTable recipes={recipes} onRecipeRemove={onRecipeRemove}></RecipeTable>
-      </div>
-    </div>
-  
+    <BrowserRouter>
+    <Navbar user={user}></Navbar>
+      <Routes>
+        <Route path='/' element={<RecipePage />}></Route>
+        <Route path='/login' element={<LoginPage />}></Route>
+        <Route path='/register' element={<RegisterPage />}></Route>
+      </Routes>
+    </BrowserRouter>
   )
+
 }
+

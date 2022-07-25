@@ -29,7 +29,7 @@ export default function RecipeTable(props) {
                 <button
                   onClick={(e) => onRecipeRemove(recipe)}
                   className='btn btn-sm btn-outline-danger'>
-                  <i class="bi bi-x-circle"></i>
+                  <i className="bi bi-x-circle"></i>
                 </button>
               </td>
             </tr>)
