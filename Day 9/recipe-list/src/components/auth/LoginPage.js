@@ -2,15 +2,22 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
-
+import Button from '../common/Button';
+import Alert from '../common/Alert';
+import utils from '../../services/util.service';
 export default function LoginPage() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
   async function onFormSubmit(e) {
     e.preventDefault();
+
+    setLoading(true);
     try {
       const userCred = await signInWithEmailAndPassword(
         auth,
@@ -22,7 +29,9 @@ export default function LoginPage() {
       navigate('/');
     } catch (err) {
       console.log(err);
+      setError(utils.getFirebaseError(err));
     }
+    setLoading(false);
   }
 
   return (
@@ -51,12 +60,22 @@ export default function LoginPage() {
           </div>
           
           <div className='d-grid mt-4'>
-            <button className='btn btn-primary'
-            type='submit'
+            <Button
+              type='submit' loading={loading}
             >Login
-            </button>
+            </Button>
           </div>
         </form>
+
+        {
+          error ? 
+          <Alert className='mt-4 mb-0'>
+            {error}
+          </Alert>
+          :
+          <></>
+        }
+  
       </div>
     </div>
     </div>

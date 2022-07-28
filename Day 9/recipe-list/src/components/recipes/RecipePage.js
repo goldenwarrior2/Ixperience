@@ -4,31 +4,31 @@ import RecipeInput from './RecipeInput';
 import RecipeTable from './RecipeTable';
 
 import recipeService from '../../services/recipe.service';
+import Spinner from '../common/Spinner';
 
 export default function RecipePage() {
-  const [recipes, setRecipes] = useState([]);
-
   useEffect(() => {
     fetchRecipes();
   }, []);
 
+  const [recipes, setRecipes] = useState([]);
+  const [fetching, setFetching] = useState(false);
+
   async function fetchRecipes() {
+    setFetching(true);
     try {
       const recipes = await recipeService.readRecipes();
       setRecipes(recipes);
     } catch (err) {
       console.log(err)
     }
+    setFetching(false);
   }
 
   async function onRecipeCreated(recipe) {
-    try {
-      recipe = await recipeService.createRecipe(recipe);
-       // update recipe list with new recipe
-      setRecipes([...recipes, recipe]);
-    } catch (err) {
-      console.log(err);
-    }
+    recipe = await recipeService.createRecipe(recipe);
+      // update recipe list with new recipe
+    setRecipes([...recipes, recipe]);
   }
 
   async function onRecipeRemove(recipe) {
@@ -53,9 +53,18 @@ export default function RecipePage() {
 
         <RecipeInput onRecipeCreated={onRecipeCreated}></RecipeInput>
       </div>
-      <div className='mt-5 card card-body'>
-        <RecipeTable recipes={recipes} onRecipeRemove={onRecipeRemove}></RecipeTable>
-      </div>
+
+      {
+        fetching ?
+        <div className= "text-center">
+          <Spinner className="mt-4" variant="info"></Spinner>
+        </div> 
+        :
+        <div className='mt-5 card card-body'>
+          <RecipeTable recipes={recipes} onRecipeRemove={onRecipeRemove}></RecipeTable>
+        </div>
+      }
+
     </div>
   
   )

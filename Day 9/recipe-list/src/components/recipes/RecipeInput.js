@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { Recipe } from '../../models/recipe';
+import Spinner from '../common/Spinner';
 
 export default function RecipeInput(props) {
   
   const [recipeName, setName] = useState('');
+  const [saving, setSaving] = useState(false);
   const [recipeIngredients, setIngredients] = useState('');
   const [recipeInstructions, setInstructions] = useState('');
 
-  function onFormSubmit(event) {
+  async function onFormSubmit(event) {
     // so page doesn't reload when user submits a form
     event.preventDefault();
 
@@ -18,8 +20,14 @@ export default function RecipeInput(props) {
       recipeInstructions
     );
     
-    props.onRecipeCreated(recipe);
-    
+    setSaving(true);
+    try {
+      await props.onRecipeCreated(recipe);
+    } catch (err) {
+      console.log(err);
+    }
+    setSaving(false);
+
     setName('');
     setIngredients('');
     setInstructions('');
@@ -57,7 +65,13 @@ export default function RecipeInput(props) {
         <div className='d-grid'>
           <button
             type='submit'
-            className='btn btn-outline-primary'>Submit
+            className='btn btn-outline-warning'>
+              {
+                saving ?
+                <Spinner variant='primary'></Spinner>
+                :
+                'Submit'
+              }
           </button>
         </div>
       </form>

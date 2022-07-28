@@ -1,0 +1,9 @@
+.button {
+  position: relative;
+}
+
+.button-spinner {
+  position: absolute;
+  bottom: 18px;
+  right: 25px;
+}
